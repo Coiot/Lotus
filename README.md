@@ -1,6 +1,6 @@
 # Lotus
 
-Experiment to create a coloring book graphic for a mindfulness webpage. 
+Experiment to create a coloring book for the 10k Apart contest by An Event Apart. 
 
 Colors chosen for harmony.
 
