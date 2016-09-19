@@ -8,4 +8,4 @@ Original JQuery replaced and rewritten in DOM to fit event guidelines.
 
 Server compresses the lone HTML file to 7.8kB. Everything written inline in the HTML file. 
 
-# Demo: https://coiot.github.io/Lotus/
+## Demo: https://coiot.github.io/Lotus/
