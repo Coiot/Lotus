@@ -34,7 +34,7 @@
             <button id="White" style="background-color: white; width: 4.5em; height: 4.5em;" />
         </p>
     </div>
-    <script type="text/javascript">
+      <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var button_name = document.querySelectorAll("button[id]")
             for (var i = 0; i < button_name.length; i++) {
@@ -43,6 +43,10 @@
                     document.getElementById('color_chosen').innerHTML = color_name;
                 })
             }
+            document.getElementById("0").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("0").style.fill = color_fill;
+            })
             document.getElementById("1").addEventListener("click", function() {
                 color_fill = color_name;
                 document.getElementById("1").style.fill = color_fill;
@@ -65,6 +69,11 @@
             })
         })
     </script>
+    <style>
+        svg [fill] {
+            transition: fill .5s ease-in .3s;
+        }
+    </style>
 </body>
 
 </html>
