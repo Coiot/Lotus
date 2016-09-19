@@ -6,4 +6,4 @@ Inspiried from Sanders Kleinfeld's HTML5 for Publishers: http://chimera.labs.ore
 
 Original JQuery replaced and rewritten in DOM to fit event guidelines.
 
-Server compresses the lone HTML file to 7.8kB.
+Server compresses the lone HTML file to 7.8kB. Everything written inline in the HTML file. 
