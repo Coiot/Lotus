@@ -21,7 +21,7 @@
     <div style="margin-left:5em;">
         <p>
             <h2>Lotus Mandala</h2></p>
-        <p>Color selected: <span id="color_chosen">Select a color, and then click a section of the drawing to fill it.</span></p>
+        <p>Color selected: <span id="color_chosen">Select a color, and then click on the petals to fill them.</span></p>
         <p>
             <button id="Crimson" style="background-color: crimson; width: 4.5em; height: 4.5em;" />
             <button id="OrangeRed" style="background-color: orangered; width: 4.5em; height: 4.5em;" />
@@ -35,41 +35,6 @@
             <button id="White " style="background-color: white; width: 4.5em; height: 4.5em;" />
         </p>
     </div>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var button_name = document.querySelectorAll("button[id]")
-            for (var i = 0; i < button_name.length; i++) {
-                button_name[i].addEventListener('click', function() {
-                    color_name = this.id;
-                    document.getElementById('color_chosen').innerHTML = color_name;
-                })
-            }
-            document.getElementById("0").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("0").style.fill = color_fill;
-            })
-            document.getElementById("1").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("1").style.fill = color_fill;
-            })
-            document.getElementById("2").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("2").style.fill = color_fill;
-            })
-            document.getElementById("3").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("3").style.fill = color_fill;
-            })
-            document.getElementById("4").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("4").style.fill = color_fill;
-            })
-            document.getElementById("5").addEventListener("click", function() {
-                color_fill = color_name;
-                document.getElementById("5").style.fill = color_fill;
-            })
-        })
-    </script>
     <style>
         svg [fill] {
             transition: fill .5s ease-in .3s;
