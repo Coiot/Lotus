@@ -3,13 +3,12 @@
 
 <head>
     <title>Lotus</title>
-    <script src="index.js" charset="utf-8"></script>
 </head>
 
-<body style="display: flex;justify-content: center;align-content:center;flex-wrap:wrap;">
+<body style="display:flex;justify-content:center;align-content:center;flex-wrap:wrap;">
 
-    <div id="lotus" style="width:40em;display: flex;justify-content: center;align-content:center; margin-top:2em;padding:1em;">
-        <svg style="height:10%; width: 80%;" viewBox="0 0 468 468">
+    <div id="lotus" style="width:40em;display:flex;justify-content:center;align-content:center; margin-top:2em;padding:1em;">
+        <svg id="svg" style="height:10%; width: 80%;" viewBox="0 0 468 468">
 <g>
 			<animateTransform attributeName="transform" type="rotate" from="0 234 234" to="360 234 234" begin="0s" dur="40s" repeatCount="indefinite"/>
       <animate attributeName="fill" attributeType="CSS" dur="20s" values="royalblue;deepskyblue;loivedrab;gold;orange;orangered;crimson;purple;royalblue;" repeatCount="indefinite"/>
@@ -18,7 +17,7 @@
 </g>
 </svg>
     </div>
-    <div id="text" style="display:flex;justify-content:center;flex-wrap:wrap;padding:1em;">
+    <div id="text" style="display:flex;justify-content:center;flex-wrap:wrap;padding:1em;width:100%;">
         <p>
             <h2>Lotus Mandala</h2></p>
         <p style="display:flex;width:100%;justify-content:center;">
@@ -37,11 +36,101 @@
             <button id="White " style="background-color: white; width: 4.5em; height: 4.5em;" />
         </p>
     </div>
+    <div>
+        <p style="width:100%;">
+            <button id="Download" class="downloadbutton" style="width:14em;height: 2.3em;padding:.5em;border: 0 none;border-radius: 7px;background-color:	#696969	;color:white;font-size:1.1em"><b>Download SVG</b></a>
+        </p>
+      </div>
+          <canvas id="canvas"></canvas>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var button_name = document.querySelectorAll("button[id]")
+            for (var i = 0; i < button_name.length; i++) {
+                button_name[i].addEventListener('click', function() {
+                    color_name = this.id;
+                    document.getElementById('color_chosen').innerHTML = color_name;
+                })
+            }
+            document.getElementById("0").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("0").style.fill = color_fill;
+            })
+            document.getElementById("1").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("1").style.fill = color_fill;
+            })
+            document.getElementById("2").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("2").style.fill = color_fill;
+            })
+            document.getElementById("3").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("3").style.fill = color_fill;
+            })
+            document.getElementById("4").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("4").style.fill = color_fill;
+            })
+            document.getElementById("5").addEventListener("click", function() {
+                color_fill = color_name;
+                document.getElementById("5").style.fill = color_fill;
+            })
+
+            var btn = document.getElementById('Download');
+var svg = document.querySelector('svg');
+var canvas = document.querySelector('canvas');
+
+function triggerDownload (imgURI) {
+  var evt = new MouseEvent('click', {
+    view: window,
+    bubbles: false,
+    cancelable: true
+  });
+
+  var a = document.createElement('a');
+  a.setAttribute('download', 'lotus.png');
+  a.setAttribute('href', imgURI);
+  a.setAttribute('target', '_blank');
+
+  a.dispatchEvent(evt);
+}
+
+btn.addEventListener('click', function () {
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  var data = (new XMLSerializer()).serializeToString(svg);
+  var DOMURL = window.URL || window.webkitURL || window;
+
+  var img = new Image();
+  var svgBlob = new Blob([data], {type: 'image/svg+xml;'});
+  var url = DOMURL.createObjectURL(svgBlob);
+
+  img.onload = function () {
+    ctx.drawImage(img, 0, 0);
+    DOMURL.revokeObjectURL(url);
+
+    var imgURI = canvas
+        .toDataURL('image/png')
+        .replace('image/png');
+
+    triggerDownload(imgURI);
+  };
+
+  img.src = url;
+});
+
+          })
+    </script>
     <style>
+    #canvas {
+      display:none;
+    }
         svg [fill] {
             transition: fill .5s ease-in .3s;
         }
     </style>
+
 </body>
 
 </html>
